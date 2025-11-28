@@ -14,6 +14,46 @@ The SIGEI project is a comprehensive system that seeks to **optimize and improve
 
 ---
 
+## 🛠️ Setup Instructions (Imperatives)
+
+1. **Clone** the repository:
+
+   ```bash
+   git clone https://github.com/MariaSulcaDev/vg-ms-users.git
+   ```
+
+1. **Navigate** into the project directory:
+
+   ```bash
+   cd vg-ms-users-management/
+   ```
+
+1. **Run** the Spring Boot application:
+
+   ```bash
+   mvn spring-boot:run
+   ```
+
+1. **Access** the Swagger UI documentation:
+
+   ```bash
+   http://localhost:9083/swagger-ui/index.html
+   ```
+
+1. **Test** the API endpoints:
+
+   ```bash
+   http://localhost:9083/v3/api-docs
+   ```
+
+1. **Access** the frontend (if running separately):
+
+   ```bash
+   http://localhost:5173
+   ```
+
+---
+
 ## ⚙️ User Management Functionalities (Imperatives)
 
 1. **Manage** user accounts with comprehensive CRUD operations
