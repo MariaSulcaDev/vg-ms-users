@@ -1,0 +1,26 @@
+server:
+     port: 9083
+
+spring:
+     application:
+          name: vg-ms-users-management
+     data:
+          mongodb:
+               uri: mongodb+srv://sistemaSigei:t2eK0JR0YSwoT02e@sigei.oub8atq.mongodb.net/?retryWrites=true&w=majority&appName=SIGEI
+               database: SIGEI
+               auto-index-creation: false
+
+# Configuración de SpringDoc OpenAPI (Swagger)
+springdoc:
+     api-docs:
+          enabled: true
+          path: /v3/api-docs
+     swagger-ui:
+          enabled: true
+          path: /swagger-ui/index.html
+          operations-sorter: method
+          tags-sorter: alpha
+          display-request-duration: true
+          show-extensions: true
+          show-common-extensions: true
+     show-actuator: false
