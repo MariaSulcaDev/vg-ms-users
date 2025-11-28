@@ -14,47 +14,32 @@ The SIGEI project is a comprehensive system that seeks to **optimize and improve
 
 ---
 
-## 🛠️ Setup Instructions (Imperatives)
+## ⚙️ User Management Functionalities (Imperatives)
 
-1. **Clone** the repository:
-
-   ```bash
-   git clone https://github.com/MariaSulcaDev/vg-ms-users.git
-   ```
-
-1. **Navigate** into backend:
-
-   ```bash
-   cd vg-ms-users/
-   ```
-
-1. **Run** Spring Boot app:
-
-   ```bash
-   mvn spring-boot:run
-   ```
-
-1. **Navigate** into frontend:
-
-   ```bash
-   cd ../vg-web-sigei/
-   ```
-
-1. **Install** dependencies and **serve** the React app:
-
-   ```bash
-   npm install
-   npm run dev
-   ```
+1. **Manage** user accounts with comprehensive CRUD operations
+1. **Assign** specific roles to users based on their responsibilities:
+   - `ADMIN`: **Manage** all system users and configurations
+   - `DIRECTOR`: **Oversee** institutional operations and staff management
+   - `PROFESOR`: **Handle** classroom activities and student assessments
+   - `AUXILIAR`: **Assist** teachers with daily educational tasks
+   - `TUTOR`: **Guide** and **support** individual student development
+   - `PADRE`: **Monitor** their children's educational progress
+   - `MADRE`: **Track** family involvement in educational activities
+1. **Create**, **update**, and **delete** user profiles with validation
+1. **Authenticate** users through secure login mechanisms
+1. **Filter** and **search** users by role, status, and institution affiliation
+1. **Export** user data for reporting and administrative purposes
 
 ---
 
-## 🧩 How to Use the App (Advice with "should")
+## 🧩 How to Use the User Management System (Advice with "should")
 
-- You **should** open `http://localhost:9083` after the backend is running.
-- You **should** access the frontend at `http://localhost:5173` to interact with the user management interface.
-- You **should** create administrator accounts to manage student and teacher profiles.
-- You **should** test all CRUD operations through the REST endpoints before production use.
+- You **should** access the API documentation at `http://localhost:9083/swagger-ui/index.html` to explore all endpoints.
+- You **should** start by creating an ADMIN user to manage the entire system.
+- You **should** assign appropriate roles (DIRECTOR, PROFESOR, AUXILIAR, TUTOR, PADRE, MADRE) based on user responsibilities.
+- You **should** use the frontend interface at `http://localhost:5173` for user-friendly management operations.
+- You **should** validate user permissions before performing administrative actions.
+- You **should** regularly backup user data through the export functionality.
 
 ---
 
@@ -69,21 +54,30 @@ The SIGEI project is a comprehensive system that seeks to **optimize and improve
 
 ---
 
-## 📁 Repository Structure
+## 📁 Hexagonal Architecture Structure
 
 ```text
 /vg-ms-users-management
-├── src/main/java/          # Java 17 + Spring Boot REST API
-│   ├── application/        # Application services and configuration
-│   ├── domain/            # Domain models and enums
-│   └── infrastructure/    # REST controllers and repositories
-├── src/main/resources/    # Application configuration files
-├── src/test/             # Unit and integration tests
-├── Dockerfile           # Container configuration
-├── pom.xml             # Maven dependencies
-├── README.md           # ← You are here
-└── target/             # Compiled classes and build artifacts
+├── src/main/java/pe/edu/vallegrande/vgmsusersmanagement/
+│   ├── application/           # Application Layer (Hexagonal Architecture)
+│   │   ├── config/           # Configuration and CORS settings
+│   │   └── service/          # Business logic and use cases
+│   ├── domain/              # Domain Layer (Core Business Logic)
+│   │   ├── enums/           # UserRole, UserStatus enums
+│   │   └── model/           # User entity and domain models
+│   └── infrastructure/      # Infrastructure Layer (External Adapters)
+│       ├── client/          # External service clients
+│       ├── dto/            # Data transfer objects
+│       ├── repository/     # Data persistence adapters
+│       └── rest/           # REST API controllers (Input Adapters)
+├── src/main/resources/      # Application configuration (application.yml)
+├── src/test/               # Unit and integration tests
+├── Dockerfile             # Container configuration
+├── pom.xml               # Maven dependencies
+└── README.md             # ← You are here
 ```
+
+> **Hexagonal Architecture Benefits**: Clean separation between business logic and external concerns, making the system more testable and maintainable.
 
 ---
 
@@ -165,3 +159,5 @@ If you need help:
 
 **Thank you for your contributions to SIGEI!**
 👍 *Let's build efficient educational management systems together.*
+
+---
